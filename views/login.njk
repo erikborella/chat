@@ -1,0 +1,40 @@
+{% extends "navbar.njk" %}
+
+{% block content %}
+<div class="row">
+    <div class="col s8 offset-s2">
+        <div class="card">
+            <div class="card-image">
+                <img src="img/login-card-img.jpg" alt="">
+                <span class="card-title">
+                    <h1>Logar</h1>
+                </span>
+            </div>
+            <div class="card-content">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="name" name="name" type="text">
+                                <label for="name">Nome</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">lock</i>
+                                <input type="password" name="password" id="password">
+                                <label for="password">Senha</label>
+                            </div>
+                            <button class="btn waves-effect waves-light grey darken-4" type="submit" name="action">
+                                Entrar
+                            </button>
+                            <a href="#" class="btn waves-effect waves-light right grey darken-4">
+                                Cadastrar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
