@@ -7,12 +7,12 @@
             <div class="card-image">
                 <img src="img/login-card-img.jpg" alt="">
                 <span class="card-title">
-                    Logar
+                    Cadastrar
                 </span>
             </div>
             <div class="card-content">
                 <div class="row">
-                    <form class="col s12" action="/login" method="POST">
+                    <form class="col s12" action="/register" method="POST" id="registerForm">
                         <div class="row">
                             <div class="input-field">
                                 <i class="material-icons prefix">account_circle</i>
@@ -24,14 +24,19 @@
                                 <input type="password" name="password" id="password">
                                 <label for="password">Senha</label>
                             </div>
-                            <button class="btn waves-effect waves-light grey darken-4 col s12 m5" type="submit">
-                                Entrar
-                            </button>
+                            <div class="input-field">
+                                <i class="material-icons prefix">lock</i>
+                                <input type="password" id="password2">
+                                <label for="password2">Confirme sua senha</label>
+                            </div>
+                            <a class="btn waves-effect waves-light grey darken-4 col s12 m5" id="registerButton">
+                                Cadastrar
+                            </a>
                             <div class="hide-on-med-and-up">
                                 <br><br>
                             </div>
-                            <a href="/register" class="btn waves-effect waves-light right grey darken-4 col s12 m5">
-                                Cadastrar
+                            <a href="/login" class="btn waves-effect waves-light right grey darken-4 col s12 m5">
+                                Logar
                             </a>
                         </div>
                     </form>
@@ -41,3 +46,10 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/register.js"></script>
+    
+{% endblock scripts %}
