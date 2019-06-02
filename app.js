@@ -13,6 +13,7 @@ let session = require('express-session');
 let passport = require('passport');
 
 let flash = require('connect-flash');
+let device = require('express-device');
 
 require('./passport');
 
@@ -37,6 +38,8 @@ app.use(session({
 }));
 
 app.use(flash());
+app.use(device.capture());
+
 app.use(passport.initialize());
 app.use(passport.session());
 

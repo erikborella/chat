@@ -1,0 +1,37 @@
+{% extends "navbar.njk" %}
+
+{% block content %}
+
+    <style>
+        header, main, footer {
+            padding-left: 300px;
+        }
+
+        @media only screen and (max-width : 992px) {
+            header, main, footer {
+                padding-left: 0;
+            }
+        }
+    </style>
+
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li>
+            <div class="user-view black">
+                <a href="#name"><h5 class="white-text">Bem vindo {{ user.username }}</h5></a>
+                <a href="">&nbsp;</a>
+            </div>
+        </li>
+        {% for room in rooms %}
+         
+            {{ room.name }}
+          
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script src="js/home.js"></script>
+    
+{% endblock %}
