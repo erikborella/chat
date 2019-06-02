@@ -9,8 +9,7 @@ passport.use(new localStrategy((username, password, done) => {
 		.first()
 		.then((user) => {
 			if (!user || user.password !== password) {
-				console.log(user);
-				return done(null, false);
+				return done(null, false, {message: 'Senha ou nome de usuario incorretos'});
 			}
 			done(null, user);
 		}, done);

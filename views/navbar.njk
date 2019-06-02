@@ -15,8 +15,13 @@
                     <a href="#" class="brand-logo">{{ title }}</a>
                     <ul class="right hide-on-med-and-down">
                         {% if not user %}
-                            <li><a href="/login">Logar</a></li>
-                            <li><a href="/register">Cadastrar</a></li>
+                            {% if title === 'Logar' %}
+                                <li><a href="/register">Cadastrar</a></li>
+                            {% endif %}
+
+                            {% if title === 'Cadastrar' %}
+                                <li><a href="/login">Logar</a></li>
+                            {% endif %}
                         {% endif %}
                         {% if user %}
                             <li><a href="/logout">Sair</a></li>
@@ -29,7 +34,6 @@
 
         <main>
             <div class="container">
-                
                 {% block content %} {% endblock %}
             </div>
         </main>
@@ -39,6 +43,7 @@
         </footer>
         
         <script src="js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         {% block scripts %} {% endblock %}
     </body>
 </html>

@@ -11,6 +11,9 @@ let expressNunjunks = require('express-nunjucks');
 
 let session = require('express-session');
 let passport = require('passport');
+
+let flash = require('connect-flash');
+
 require('./passport');
 
 let app = express();
@@ -33,6 +36,7 @@ app.use(session({
 	saveUninitialized: false
 }));
 
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 

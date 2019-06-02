@@ -9,14 +9,28 @@ router.get('/logout', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-	db('user').insert(req.body).then(() => {
-		res.redirect('/');
-	});
+	db('user')
+		.where('username', req.body.username)
+		.first()
+		.then((user) => {
+			if (user) {
+				req.flash('error', 'Nome de usuario já existente');
+				res.redirect('/register');
+			} else {
+				db('user').insert(req.body).then(() => {
+					res.redirect('/');
+				});
+			}
+
+		});
+
 });
 
 router.post('/login', passport.authenticate('local', {
 	successRedirect: '/',
-	failureRedirect: '/login'
+	failureRedirect: '/login',
+	failureFlash: true
+
 }));
 
 module.exports = router;
